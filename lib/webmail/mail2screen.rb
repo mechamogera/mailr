@@ -1,5 +1,4 @@
 require 'cdfutils'
-require 'nkf'
 
 module Mail2Screen
   def mail2html(mail, msg_id)
@@ -118,11 +117,6 @@ module Mail2Screen
         return Iconv.conv("UTF-8",charset.downcase, ret)
       rescue Exception => ex
         RAILS_DEFAULT_LOGGER.debug("Exception occured #{ex}\n#{ex.backtrace.join('\n')}")
-        begin
-          return NKF.nkf("-w",ret)
-        rescue Exception => ex2
-          RAILS_DEFAULT_LOGGER.debug("Exception occured #{ex2}\n#{ex2.backtrace.join('\n')}")
-        end
         return ret
       end
     end 
