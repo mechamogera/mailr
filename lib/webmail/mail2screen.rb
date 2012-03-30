@@ -122,7 +122,7 @@ module Mail2Screen
   end
   
   def add_attachment(content_type, msg_id)
-    filename = (content_type.nil? or content_type['name'].nil? ? "" : content_type['name'])
+    filename = ((content_type.nil? or content_type['name'].nil?) ? "" : content_type['name'])
     if filename == ""
       ""
     else
